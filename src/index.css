@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.filepond--panel-root {
+    background-color: transparent;
+    @apply rounded border-dotted border-2;
+}
