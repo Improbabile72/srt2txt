@@ -45,6 +45,8 @@ function App() {
           allowMultiple={false}
           credits={false}
           stylePanelLayout="compact"
+          dropOnPage={true}
+          dropOnElement={false}
         />
       </div>
       <div className="grow-2 p-4 my-4 overflow-auto">
