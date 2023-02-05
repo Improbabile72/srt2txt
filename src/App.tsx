@@ -39,18 +39,19 @@ function App() {
       <div className="grow-1 flex flex-col justify-center">
         <FilePond
           labelIdle={
-            'Drop your subs file or <span class="filepond--label-action"> Browse </span>'
+            'Drop your subs file or <span class="filepond--label-action">Browse</span>'
           }
           onupdatefiles={setFiles}
           allowMultiple={false}
           credits={false}
           stylePanelLayout="compact"
+          styleButtonRemoveItemPosition="right"
           dropOnPage={true}
           dropOnElement={false}
         />
       </div>
       {paragraphs && paragraphs.length > 0 ? (
-        <div className="grow-2 p-4 my-4 overflow-auto bg-white rounded">
+        <div className="grow-2 p-4 overflow-auto bg-white rounded">
           {paragraphs.map((paragraph, idx) => (
             <p key={`p-${idx}`}>{paragraph}</p>
           ))}

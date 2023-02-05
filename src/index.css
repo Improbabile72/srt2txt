@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+.filepond--root {
+  @apply font-sans max-h-16;
+}
 .filepond--panel-root {
-  background-color: transparent;
-  @apply rounded border-dotted border-2;
+  @apply bg-transparent rounded;
 }
