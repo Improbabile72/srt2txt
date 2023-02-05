@@ -1,4 +1,8 @@
-export default `
+/**
+ * Fixtures for a valid subtitles file
+ */
+
+export const validSubs = `
 1
 00:00:27,263 --> 00:00:35,263
 Season 1 espisode 1
@@ -47,3 +51,12 @@ You should be!
 - Well I'm a little bit scared.
 - What? Don't be!
 `;
+
+export const validSubsFile = new File(
+  [validSubs],
+  "the_it_crowd_s01e01_en.srt",
+  {
+    type: "text/plain",
+    lastModified: 1139019760,
+  }
+);

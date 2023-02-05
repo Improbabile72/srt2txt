@@ -1,4 +1,8 @@
-export default `
+/**
+ * Fixtures for an invalid subtitles file
+ */
+
+export const invalidSubs = `
 Season 1 espisode 1
 
 Hope this doesn't
