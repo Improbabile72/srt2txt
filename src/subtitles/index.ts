@@ -6,12 +6,14 @@ export async function processSubtitle(sub: FilePondFile): Promise<string> {
   const content = await file.text();
   const parsed = parseSync(content);
 
-  return parsed.map((node) => {
-    if (node.type !== "cue") {
-      return "";
-    }
-    return node.data.text;
-  }).join("\n");
+  return parsed
+    .map((node) => {
+      if (node.type !== "cue") {
+        return "";
+      }
+      return node.data.text;
+    })
+    .join("\n");
 }
 
 export function processSubtitleContent(content: string): string[] {
