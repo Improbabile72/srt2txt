@@ -8,7 +8,8 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage",
+    "prepare": "husky install"
   },
   "dependencies": {
     "filepond": "^4.30.4",
@@ -23,10 +24,16 @@
     "@vitejs/plugin-react": "^3.0.0",
     "autoprefixer": "^10.4.13",
     "happy-dom": "^8.2.6",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "prettier": "2.8.3",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
     "vite-plugin-node-polyfills": "^0.7.0",
     "vitest": "^0.28.4"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
