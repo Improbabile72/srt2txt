@@ -26,27 +26,25 @@ describe("processSubtitle", () => {
 
     const res = await processSubtitle(file);
 
-    expect(res).toEqual(
-      `
-Season 1 espisode 1
-Hope this doesn't
-embarrass you Jen,
-but I found the best thing to do
-with the new employee
-is to size them up
-with a long hard stare.
-- So!
-- So.
-- First day!
-- Yes!
-- Scary...?
-- Yes...
-- Don't be scared!
-- Oh, I'm not really scared.
-You should be!
-- Well I'm a little bit scared.
-- What? Don't be!
-    `.trim()
-    );
+    expect(res).toEqual([
+      "Season 1 espisode 1",
+      "Hope this doesn't",
+      "embarrass you Jen,",
+      "but I found the best thing to do",
+      "with the new employee",
+      "is to size them up",
+      "with a long hard stare.",
+      "- So!",
+      "- So.",
+      "- First day!",
+      "- Yes!",
+      "- Scary...?",
+      "- Yes...",
+      "- Don't be scared!",
+      "- Oh, I'm not really scared.",
+      "You should be!",
+      "- Well I'm a little bit scared.",
+      "- What? Don't be!",
+    ]);
   });
 });
