@@ -5,6 +5,7 @@ import { processSubtitle } from "./subtitles";
 
 import { version as APP_VERSION } from "../package.json";
 import "filepond/dist/filepond.min.css";
+import TextPreview from "./components/TextPreview";
 
 function App() {
   const [files, setFiles] = useState<FilePondFile[]>();
@@ -51,11 +52,9 @@ function App() {
         />
       </div>
       {paragraphs && paragraphs.length > 0 ? (
-        <div className="grow-2 p-4 overflow-auto bg-white rounded">
-          {paragraphs.map((paragraph, idx) => (
-            <p key={`p-${idx}`}>{paragraph}</p>
-          ))}
-        </div>
+        <>
+          <TextPreview paragraphs={paragraphs} />
+        </>
       ) : null}
       <footer className="md:max-w-xl my-4 text-center text-gray-500 text-sm flex flex-wrap justify-around gap-x-8 gap-y-2">
         <p>Made with ☕️ by Alessandro Baldo</p>
