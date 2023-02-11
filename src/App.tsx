@@ -6,10 +6,13 @@ import { processSubtitle } from "./subtitles";
 import { version as APP_VERSION } from "../package.json";
 import "filepond/dist/filepond.min.css";
 import TextPreview from "./components/TextPreview";
+import Switch from "./components/Switch";
+import CopyButton from "./components/CopyButton";
 
 function App() {
   const [files, setFiles] = useState<FilePondFile[]>();
   const [paragraphs, setParagraphs] = useState<string[] | undefined>(undefined);
+  const [splitNewLine, setSplitNewLine] = useState<boolean>(false);
 
   useEffect(() => {
     (async function () {
@@ -20,11 +23,11 @@ function App() {
       } else if (files.length === 1) {
         // A file was uploaded
         const file = files[0];
-        const res = await processSubtitle(file);
+        const res = await processSubtitle(file, splitNewLine);
         setParagraphs(res);
       }
     })().catch(console.error);
-  }, [files]);
+  }, [files, splitNewLine]);
 
   return (
     <div className="h-screen max-h-screen md:max-w-2xl mx-auto flex flex-col justify-between p-2">
@@ -54,6 +57,15 @@ function App() {
       {paragraphs && paragraphs.length > 0 ? (
         <>
           <TextPreview paragraphs={paragraphs} />
+          <div className="mt-2 flex justify-end">
+            <Switch
+              checked={splitNewLine}
+              onChange={(evt) => setSplitNewLine(evt.target.checked)}
+              id="test"
+              label="Split cue on new lines"
+            />
+          </div>
+          <CopyButton paragraphs={paragraphs}></CopyButton>
         </>
       ) : null}
       <footer className="md:max-w-xl my-4 text-center text-gray-500 text-sm flex flex-wrap justify-around gap-x-8 gap-y-2">
